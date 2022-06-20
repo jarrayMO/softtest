@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="{{ asset('assets/css/prettify.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assets/css/fontawesome-5.15.1-web/all.css')}}" type="text/css">
+        <script type="text/javascript" src="{{ asset('assets/js/jquery-2.2.4.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/bootstrap.bundle-4.5.2.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/prettify.min.js')}}"></script>
+
+        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-multiselect.js')}}"></script>
+
+
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid " >
+            <div class="navbar-header">
+            </div>
+            <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ path('app_coustmer_rentable') }}">Home</a></li>
+                <li><a href="{{ path('app_index') }}">meilleur clients</a></li>
+            <li><a href="{{ path('app_customer_index') }}">client</a></li>
+            <li><a href="{{ path('app_material_index') }}">Material</a></li>
+                <li><a href="{{ path('app_poste') }}">ajouter matériel client</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    </body>
+</html>

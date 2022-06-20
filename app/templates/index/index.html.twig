@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+    <h3>List de clients ont  plus de 30 matériels, et dont le matériel vendu est supérieur à 30.000 euros.</h3>
+    {% include 'liste_customer_price.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

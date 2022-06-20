@@ -1,0 +1,36 @@
+
+
+{{ form_start(form,{'attr':{'novalidate':'novalidate','id': 'form_customer'}}) }}
+
+<div class="row">
+    {{ form_row(form.name) }}
+    <div class="alert alert-danger  " id='alert_name' role="alert" style="display: none;">
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(form.lastName) }}
+        <div class="alert alert-danger  " id='alert_lastname' role="alert" style="display: none;">
+        </div>
+    </div>
+
+    <div class="col">
+        {{ form_row(form.email) }}
+        <div class="alert alert-danger  " id='alert_email' role="alert" style="display: none;">
+        </div>
+    </div>
+</div>
+<div class="row">
+{{ form_row(form.save, { 'label': 'save' }) }}
+</div>
+{{ form_end(form) }}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/commonFunction.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#customer_save').click(function() {
+                checkDataCustomer();
+            });
+        });
+    </script>
+{% endblock %}

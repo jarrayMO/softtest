@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+    <div class="form-group">
+        <label for="client_id">Select client:</label>
+        <select class="form-control" id="client_id" name="client_id">
+            <option value="0"></option>
+            {% for customer in customers %}
+                <option value={{ customer.id }}>{{ customer.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div id="list_material">
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+            $('#client_id').on('change', function (e) {
+               var clientId = $("#client_id").val();
+                $.ajax({
+                    url: "/get/material",
+                    type: "get",
+                    data: {
+                        'clientId' : clientId
+                    },
+                    success: function(response) {
+                        $("#list_material").html(response);
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <form action="{{ path('app_save') }}" method="POST">
+        <div class="form-group">
+            <label for="sel1">Select client:</label>
+            <select class="form-control" id="sel1" name="client_id">
+                {% for customer in customers %}
+                <option value={{ customer.id }}>{{ customer.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <select id="example-getting-started" multiple="multiple" name="material_id[]"  class="select">
+                {% for material in materials %}
+                <option value="{{ material.id }}">{{ material.name }}({{ material.price }}€)</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#example-getting-started').multiselect();
+        });
+    </script>
+{% endblock %}

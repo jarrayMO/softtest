@@ -1,0 +1,37 @@
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Nombre de Matériels</th>
+        <th>Prix</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for customer in customers %}
+        <tr>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.countMateriel }}</td>
+            <td>{{ customer.sumPrice }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">
+                <p class="alert alert-info">
+                    <strong>Info!</strong>
+                    {%if allCustomer %}
+                        pas des clients qui ont matériel acheté pour le moments
+                    {% else %}
+                        pas des clients ont plus de 30 matériels, et dont le matériel vendu est supérieur à 30.000 euros.
+                    {% endif %}
+                </p>
+
+            </td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>

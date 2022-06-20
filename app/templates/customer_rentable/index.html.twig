@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2>Totaux vendus pour chaque client</h2>
+        <div class="col-sm-8">{% include 'liste_customer_price.html.twig' %}</div>
+        <div class="col-sm-4" style="background-color: gold;">
+            {% for customerMaxTotal in customersMaxTotal %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ customerMaxTotal.lastName }} {{ customerMaxTotal.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ customerMaxTotal.sumPrice }} €</h6>
+                        <p class="card-text">ce client est le client le plus rentable (gold customer).</p>
+                        <a href="mailto:mosbehjarray@gmail.com" class="card-link">{{ customerMaxTotal.email }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

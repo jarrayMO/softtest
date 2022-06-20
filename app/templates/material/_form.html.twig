@@ -1,0 +1,31 @@
+{{ form_start(form,{'attr':{'novalidate':'novalidate','id': 'form_material'}}) }}
+<div class="row">
+    {{ form_row(form.name) }}
+    <div class="alert alert-danger  " id='alert_name' role="alert" style="display: none;">
+    </div>
+</div>
+<div class="row">
+    {{ form_row(form.price) }}
+    <div class="alert alert-danger " id='alert_price' role="alert" style="display: none;">
+    </div>
+</div>
+<div class="row">
+    {{ form_row(form.description) }}
+    <div class="alert alert-danger  " id='alert_description' role="alert" style="display: none;">
+    </div>
+</div>
+<div class="row">
+    {{ form_row(form.save, { 'label': 'save' }) }}
+</div>
+{{ form_end(form) }}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/commonFunction.js')}}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#material_save').click(function() {
+                checkDataMaterial()
+            });
+        });
+    </script>
+{% endblock %}
